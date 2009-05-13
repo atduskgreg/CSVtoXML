@@ -1,0 +1,11 @@
+This is an incredibly simple tool for converting CSV files to XML. It assumes that your CSV has a header row with column names and it uses those to create tag names for the XML. It does minimal sanitization of your column names and field contents to create valid XML (again, 'naive' is our watchword). It relies on faster_csv which you can get thusly:
+
+    [sudo] gem install faster_csv
+  
+Here's how you use it:
+
+    my_xml = CSVtoXML.convert("path/to/my.csv", {:row_name => "Item", :top_node => "Items"})
+
+The top_node option is not required. If provided, it will wrap the results in a single node to create valid XML. You might not need this if you are creating XML in some other more brute fashion via string manipulation.
+
+Party on.
